@@ -87,12 +87,12 @@
 			$h_L$ & Heat transfer coefficient between slurry and gas & $W m^{-2}K^{-1}$ \\
 			$a$ & Interfacial area density & $m^2m^{-3}=m^{-1}$ \\
 			$\lambda_{\mathrm{eff,z,G}}$ & Eff. thermal conductivity, gas & $W m^{-1}K^{-1}$ \\
-			$k_{\mathrm{eff,z,L}}$ & Eff. thermal conductivity, liquid & $W m^{-1}K^{-1}$ \\
-			$k_{\mathrm{eff,z,S}}$ & Eff. thermal conductivity, solid & $W m^{-1}K^{-1}$ \\
-			$k_{\mathrm{eff,z,SL}}$ & Eff. thermal conductivity, slurry & $W m^{-1}K^{-1}$ \\
-			$k_G$ & Thermal conductivity, gas & $W m^{-1}K^{-1}$ \\ 
-			$k_L$ & Thermal conductivity, liquid & $W m^{-1}K^{-1}$ \\
-			$k_{SL}$ & Thermal conductivity, slurry & $W m^{-1}K^{-1}$ \\
+			$\lambda_{\mathrm{eff,z,L}}$ & Eff. thermal conductivity, liquid & $W m^{-1}K^{-1}$ \\
+			$\lambda_{\mathrm{eff,z,S}}$ & Eff. thermal conductivity, solid & $W m^{-1}K^{-1}$ \\
+			$\lambda_{\mathrm{eff,z,SL}}$ & Eff. thermal conductivity, slurry & $W m^{-1}K^{-1}$ \\
+			$\lambda_G$ & Thermal conductivity, gas & $W m^{-1}K^{-1}$ \\ 
+			$\lambda_L$ & Thermal conductivity, liquid & $W m^{-1}K^{-1}$ \\
+			$\lambda_{SL}$ & Thermal conductivity, slurry & $W m^{-1}K^{-1}$ \\
 			$\mu_G$ & Viscosity, gas & $Pa\,s=kg s^{-1} m^{-1}$ \\
 			$\mu_L$ & Viscosity, liquid & $Pa\,s=kg s^{-1} m^{-1}$ \\
 			$\mu_{SL}$ & Viscosity, slurry & $Pa\,s=kg s^{-1} m^{-1}$ \\
@@ -351,28 +351,27 @@ For the total mass balance for the gas phase, equation~\ref{eq:total_mass_balanc
 \end{equation}
 
 \subsection{Species mass conservation: gas phase}
-\label{subsec:manipulations_gas_phase_equations}
-Utilising the assumptions made in section~\ref{sec:assumptions}, the gas phase component balance on mass basis is given in equation~\ref{eq:component_balance_gas_manipulations}, upper part. The left hand side term is then expanded (equation~\ref{eq:component_balance_gas_manipulations}, middle part), along with the dispersion term (accepting constant dispersion coefficient), and finally the equation is manipulated to obtain the partial derivative of the mass fraction $\frac{d}{dz}\omega_{i,G}$ terms at the left hand side (equation~\ref{eq:component_balance_gas_manipulations}). 
+Starting out from the axial dispersion model, the species mass balance for the gas phase is split into two equations; one for flux and one for weight fractions.
+
+We define:
 \begin{equation}
-\begin{split}
-	&\frac{d}{dz}\left(\rho_G v_G^s \omega_{i,G} \right) = \frac{d}{dz}\left(\epsilon_G \rho_G D_{\mathrm{eff,z,G}}\frac{d\omega_{i,G}}{dz} \right)- k_{L,i}a\rho_L(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}) \\
-	&\rho_G v_G^s\frac{d}{dz}\omega_{i,G} + \rho_G\omega_{i,G}\frac{d}{dz}v_G^s + v_G^s \omega_{i,G}\frac{d}{dz}\rho_G =
-	\rho_G D_{\mathrm{eff,z,G}} \frac{d \omega_{i,G}}{dz}\frac{d \epsilon_G}{dz} + \epsilon_G \rho_G \frac{d \omega_{i,G}}{dz}\frac{d D_{\mathrm{eff,z,G}}}{dz} \\
-	&+ \epsilon_G D_{\mathrm{eff,z,G}}\frac{d\omega_{i,G}}{dz}\frac{d \rho_G}{dz} + \epsilon_G \rho_G D_{\mathrm{eff,z,G}} \frac{d^2 \omega_{i,G}}{dz^2} - k_{L,i}a\rho_L(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L})\\
-	&\left[ \rho_G v_G^s -\rho_G D_{\mathrm{eff,z,G}} \frac{d\epsilon_G}{dz} - \epsilon_GD_{\mathrm{eff,z,G}}\frac{d\rho_G}{dz}  \right]\frac{d \omega_{i,G}}{dz} + \left[-\epsilon_G\rho_G D_{\mathrm{eff,z,G}}\right]\frac{d^2\omega_{i,G}}{dz^2} = \\
-	& - \rho_G \omega_{i,G} \frac{d v_G^s}{dz} - v_G^s\omega_{i,G}\frac{d\rho_G}{dz} - k_{L,i} a \rho_L\left(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L} \right)
-	\end{split}
+	j_{i,G} = - \epsilon_G \rho_G D_{\mathrm{eff,z,G}}\frac{d\omega_{i,G}}{dz}
 \end{equation}
-Dividing by $\rho_G v_G^s$ and inserting for $\frac{d v_G^s}{dz}$ (equation~\ref{eq:total_balance_gas_manipulations}) gives:
+
+We then get:
 \begin{equation}
 	\begin{split}
-		&\left[1 - \frac{D_{\mathrm{eff,z,G}}}{v_G^s}\frac{d \epsilon_G}{dz} -\frac{1}{\rho_Gv_G^s}\frac{d\rho_G}{dz}\right]\frac{d\omega_{i,G}}{dz} - \epsilon_G \frac{D_{\mathrm{eff,z,G}}}{v_G^s}\frac{d^2\omega_{i,G}}{dz^2} = \\
-		& \frac{\omega_{i,G}}{\rho_G}\frac{d \rho_G}{dz} + \frac{\omega_{i,G}}{v_G^s}\frac{\rho_L}{\rho_G}\sum_ik_{L,i}a(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}) - \frac{\omega_{i,G}}{\rho_G}\frac{d \rho_G}{dz} - \frac{\rho_L}{\rho_G}\frac{k_{L,i}a}{v_G^s}(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L})\\
-		&\left[1 - \frac{D_{\mathrm{eff,z,G}}}{v_G^s}\frac{d \epsilon_G}{dz} -\frac{1}{\rho_Gv_G^s}\frac{d\rho_G}{dz}\right]\frac{d\omega_{i,G}}{dz} - \epsilon_G \frac{D_{\mathrm{eff,z,G}}}{v_G^s}\frac{d^2\omega_{i,G}}{dz^2} = \\
-		&\frac{\omega_{i,G}}{v_G^s}\frac{\rho_L}{\rho_G}\sum_ik_{L,i}a(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L})  - \frac{\rho_L}{\rho_G}\frac{k_{L,i}a}{v_G^s}(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L})\\
-			\label{eq:component_balance_gas_manipulations}
+	& j_{i,G} + \epsilon_G \rho_G D_{\mathrm{eff,z,G}}\frac{d\omega_{i,G}}{dz} = 0\\
+	&\frac{d}{dz}\left(\rho_G v_G^s \omega_{i,G} \right) + \frac{dj_{i,G}}{dz} + k_{L,i}a\rho_L(\frac{1}{k_i}\frac{\overline{M_L}}{\overline{M_G}}\omega_{i,G}^*-\omega_{i,L}) = 0
 	\end{split}
 \end{equation}
+Finally, expanding the left hand side of the weight fraction equation.
+	\begin{equation}
+	\begin{split}
+	&\rho_Gv_G^s\frac{d}{dz}\omega_{i,G} + \rho_G\omega_{i,G} \frac{d}{dz}v_G^s + v_G^s \omega_{i,G} \frac{d}{dz}\rho_G + \frac{dj_{i,G}}{dz} + k_{L,i}a\rho_L(\frac{1}{k_i}\frac{\overline{M_L}}{\overline{M_G}}\omega_{i,G}^*-\omega_{i,L}) = 0
+	\end{split}
+\end{equation}
+
 
 \subsection{Total mass conservation: liquid phase}
 
@@ -387,51 +386,29 @@ For the total mass balance in the liquid phase, we insert for the mass transfer 
 \end{equation}
 
 \subsection{Species mass conservation: liquid phase}
+Starting out from the axial dispersion model, the species mass balance for the liquid phase is split into two equations; one for flux and one for weight fractions.
 
-Similar manipulations as performed to the gas phase equations in subsection~\ref{subsec:manipulations_gas_phase_equations} are performed to the liquid phase equations, see equations~\ref{eq:component_balance_liquid_manipulations} and~\ref{eq:total_mass_balance_liquid_manipulations}. 
+We define:
 \begin{equation}
-	\begin{split}
-	&\frac{d}{dz}\left(\rho_L v_L^s \omega_{i,L} \right) = \frac{d}{dz}\left(\epsilon_L \rho_L D_{\mathrm{eff,z,L}}\frac{d\omega_{i,L}}{dz} \right)+ k_{L,i}a\rho_L(\frac{1}{k_i}\frac{\overline{M_L}}{\overline{M_G}}\omega_{i,G}^*-\omega_{i,L}) + \epsilon_LR_i \\
-	&\rho_Lv_L^s\frac{d}{dz}\omega_{i,L} + \rho_L\omega_{i,L} \frac{d}{dz}v_L^s + v_L^s \omega_{i,L} \frac{d}{dz}\rho_L =\frac{d}{dz}\left(\epsilon_L \rho_L D_{\mathrm{eff,z,L}}\frac{d\omega_{i,L}}{dz} \right)+ k_{L,i}a\rho_L(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}) + \epsilon_LR_i\\
-	&\frac{d}{dz}\omega_{i,L} = -\frac{\omega_{i,L}}{v_L^s} \frac{d}{dz}v_L^s - \frac{\omega_{i,L}}{\rho_L} \frac{d}{dz}\rho_L+ \frac{1}{\rho_Lv_L^s}\frac{d}{dz}\left(\epsilon_L \rho_L D_{\mathrm{eff,z,L}}\frac{d\omega_{i,L}}{dz} \right)+\frac{k_{L,i}a}{v_L^s}(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}) + \frac{\epsilon_LR_i}{\rho_L v_L^s}
-	\label{eq:component_balance_liquid_manipulations}
-	\end{split}
+	j_{i,L} = - \epsilon_L \rho_L D_{\mathrm{eff,z,L}}\frac{d\omega_{i,L}}{dz}
 \end{equation}
 
-
-Inserting for equation~\ref{eq:total_mass_balance_liquid_manipulations} into equation~\ref{eq:component_balance_liquid_manipulations} gives equation~\ref{eq:component_balance_liquid_minus_total_balance}. The axial dispersion term is expanded.
+We then get:
 \begin{equation}
 	\begin{split}
-	\frac{d}{dz}\omega_{i,L} = &-\frac{\omega_{i,L}}{v_L^s} \left[ -\frac{v_L^s}{\rho_L}\frac{d}{dz}\rho_L + \sum_ik_{L,i}a(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}) \right] \\
-	&- \frac{\omega_{i,L}}{\rho_L} \frac{d}{dz}\rho_L+ \frac{1}{\rho_Lv_L^s}\frac{d}{dz}\left(\epsilon_L \rho_L D_{\mathrm{eff,z,L}}\frac{d\omega_{i,L}}{dz} \right)+ \frac{k_{L,i}a}{v_L^s}(\frac{1}{k_i}\frac{\overline{M_L}}{\overline{M_G}}\omega_{i,G}^*-\omega_{i,L}) + \frac{\epsilon_L R_i}{v_L^s\rho_L}\\
-	\frac{d}{dz}\omega_{i,L}&= \frac{\omega_{i,L}}{v_L^s}\frac{v_L^s}{\rho_L}\frac{d}{dz}\rho_L - \frac{\omega_{i,L}}{v_L^s}\sum_ik_{L,i}a(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}) \\
-	&- \frac{\omega_{i,L}}{\rho_L} \frac{d}{dz}\rho_L+ \frac{1}{\rho_Lv_L^s}\frac{d}{dz}\left(\epsilon_L \rho_L D_{\mathrm{eff,z,L}}\frac{d\omega_{i,L}}{dz} \right)+ \frac{k_{L,i}a}{v_L^s}(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}) + \frac{\epsilon_L R_i}{v_L^s\rho_L}\\
-	\frac{d}{dz}\omega_{i,L}&= - \frac{\omega_{i,L}}{v_L^s}\sum_ik_{L,i}a(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L})  + \frac{1}{\rho_Lv_L^s}\frac{d}{dz}\left(\epsilon_L \rho_L D_{\mathrm{eff,z,L}}\frac{d\omega_{i,L}}{dz} \right)\\ 
-	&+ \frac{k_{L,i}a}{v_L^s}(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}) + \frac{\epsilon_L R_i}{v_L^s\rho_L}\\
-	\frac{d}{dz}\omega_{i,L}&= - \frac{\omega_{i,L}}{v_L^s}\sum_ik_{L,i}a(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}) \\
-	&+ \frac{\rho_L D_{\mathrm{eff,z,L}}}{\rho_L v_L^s}\frac{d\omega_{i,L}}{dz}\frac{d\epsilon_L}{dz} + \frac{\epsilon_L D_{\mathrm{eff,z,L}}}{\rho_L v_L^s} \frac{d\omega_{i,L}}{dz} \frac{d \rho_L}{dz} + \frac{\epsilon_L \rho_L}{\rho_L v_L^s}\frac{d\omega_{i,L}}{dz} \frac{d D_{\mathrm{eff,z,L}}}{dz} + \frac{\epsilon_L \rho_L D_{\mathrm{eff,z,L}}}{\rho_L v_L^s}\frac{d^2\omega_{i,L}}{dz^2}\\
-	&+ \frac{k_{L,i}a}{v_L^s}(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}) + \frac{\epsilon_L R_i}{v_L^s\rho_L}\\
-	\frac{d}{dz}\omega_{i,L}&= - \frac{\omega_{i,L}}{v_L^s}\sum_ik_{L,i}a(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}) + \frac{D_{\mathrm{eff,z,L}}}{v_L^s}\frac{d\omega_{i,L}}{dz}\frac{d\epsilon_L}{dz} + \frac{\epsilon_L D_{\mathrm{eff,z,L}}}{v_L^s}\frac{d^2\omega_{i,L}}{dz^2} \\
-	& + \frac{k_{L,i}a}{v_L^s}(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}) + \frac{\epsilon_L R_i}{v_L^s\rho_L}\\
-	&\left[1 -  \frac{D_{\mathrm{eff,z,L}}}{v_L^s}\frac{d\epsilon_L}{dz} \right]\frac{d\omega_{i,L}}{dz} - \frac{\epsilon_L D_{\mathrm{eff,z,L}}}{v_L^s}\frac{d^2\omega_{i,L}}{dz^2} \\
-	&= - \frac{\omega_{i,L}}{v_L^s}\sum_ik_{L,i}a(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}) + \frac{k_{L,i}a}{v_L^s}(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}) + \frac{\epsilon_L R_i}{v_L^s\rho_L}
+	& j_{i,L} + \epsilon_L \rho_L D_{\mathrm{eff,z,L}}\frac{d\omega_{i,L}}{dz} = 0\\
+	&\frac{d}{dz}\left(\rho_L v_L^s \omega_{i,L} \right) + \frac{dj_{i,L}}{dz} - k_{L,i}a\rho_L(\frac{1}{k_i}\frac{\overline{M_L}}{\overline{M_G}}\omega_{i,G}^*-\omega_{i,L}) = \epsilon_LR_i 
 	\end{split}
-	\label{eq:component_balance_liquid_minus_total_balance}
-\end{equation} 
+\end{equation}
+Finally, expanding the left hand side of the weight fraction equation.
+	\begin{equation}
+	\begin{split}
+	&\rho_Lv_L^s\frac{d}{dz}\omega_{i,L} + \rho_L\omega_{i,L} \frac{d}{dz}v_L^s + v_L^s \omega_{i,L} \frac{d}{dz}\rho_L + \frac{dj_{i,L}}{dz} - k_{L,i}a\rho_L(\frac{1}{k_i}\frac{\overline{M_L}}{\overline{M_G}}\omega_{i,G}^*-\omega_{i,L}) = \epsilon_LR_i 
+	\end{split}
+\end{equation}
 
 \subsection{Rate of Change in Volume Fraction}
-Equation~\ref{eq:component_balance_liquid_minus_total_balance} requires an expression for the rate of change in volume fraction of liquid, $\frac{d\epsilon_L}{dz}$. An expression for this can be found using the continuity equation for the liquid phase, equation~\ref{eq:total_mass_balance_liquid_manipulations}, by replacing the superficial velocity with its definition $v_L^s=\epsilon_Lv_L$. This gives:
-\begin{equation}
-	\begin{split}
-	&\frac{d}{dz}\left(\rho_Lv_L^s\right) =\rho_L\sum_ik_{L,i}a(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}) \\
-	&\frac{d}{dz}\left(\rho_L \epsilon_Lv_L \right) =\rho_L\sum_ik_{L,i}a(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}) \\
-	& \epsilon_L v_L \frac{d \rho_L}{dz} + \rho_Lv_L \frac{d\epsilon_L}{dz} + \rho_L \epsilon_L \frac{d v_L}{dz} = \rho_L\sum_ik_{L,i}a(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}) \\
-	&\frac{d \epsilon_L}{dz} = \frac{1}{v_L}\sum_ik_{L,i}a(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L})\\
-	&\frac{d \epsilon_L}{dz} = \frac{\epsilon_L}{v_L^s}\sum_ik_{L,i}a(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L})
-	\end{split}
-	\label{eq:change_in_volume_fraction_liquid}
-\end{equation}
-where the assumptions of $\frac{d \rho_L}{dz}=0$ and $\frac{dv_L}{dz}=0$ are utilised.
+The rate of change in volume fraction is set to zero at the current model stage. This will be improved. The volume fraction of gas is estimated, see separate note.
 
 \subsection{Rate of Change in Density}
 Equations~\ref{eq:component_balance_gas_manipulations} and~\ref{eq:total_balance_gas_manipulations} require an expression for the rate of change in gas density, $\frac{d}{dz}\rho_G$.
@@ -497,26 +474,37 @@ Equation~\ref{eq:average_molar_mass_mass_basis} provides us with an expression f
 \end{equation}
 
 \section{Energy Conservation}
-The starting point for the temperature equations was given in equations~\ref{eq:energy_balance_gas} and~\ref{eq:energy_balance_liquid}. As stated in the section of Assumptions,~\ref{sec:assumptions}, the thermal conductivity coefficient is constant for both phases. 
+The starting point for the temperature equations was given in equations~\ref{eq:energy_balance_gas} and~\ref{eq:energy_balance_liquid}. As stated in the section of Assumptions,~\ref{sec:assumptions}, the thermal conductivity coefficient is constant for both phases. The equations were re-written into a set of two equations per phase; one heat flux and one temperature equation.
 
 \subsection{Temperature equation: gas phase}
 \begin{equation}
 	\rho_G C_{p,G} v_G^s\frac{dT_G}{dz} = \frac{d}{dz}\left(\epsilon_G \lambda_{\mathrm{eff,z,G}}\frac{dT_G}{dz} \right) - h_L a (T_G - T_{SL})
 \end{equation}
-Expanding the conductivity term and collecting all $\frac{d T_G}{dz}$ terms on the left hand side gives:
+We define:
 \begin{equation}
-	\left[\rho_G C_{p,G} v_G^s - \lambda_{\mathrm{eff,z,G}}\frac{d\epsilon_G}{dz} \right]\frac{dT_G}{dz} - \epsilon_G \lambda_{\mathrm{eff,z,G}}\frac{d^2T_G}{dz^2} =- h_L a (T_G - T_{SL})
+	q_G = - \epsilon_G \lambda_{\mathrm{eff,z,G}}\frac{dT_G}{dz} 
+\end{equation}
+This yields:
+\begin{equation}
+	\begin{split}
+		&q_G + \epsilon_G \lambda_{\mathrm{eff,z,G}}\frac{dT_G}{dz} = 0 \\
+		&\rho_G C_{p,G} v_G^s\frac{dT_G}{dz} + \frac{dq_G}{dz}- h_L a (T_G - T_{SL}) = 0
+	\end{split}
 \end{equation}
 
 \subsection{Temperature equation: slurry phase}
 \begin{equation}
-	\rho_{SL} C_{p,SL} v_{SL}^s\frac{d T_{SL}}{dz} = \frac{d}{dz}\left(\epsilon_{SL}k_{\mathrm{eff,z,L}}\frac{d T_{SL}}{dz}\right) + h_W\frac{S_I}{A}(T_{\mathrm{surr}}-T_{SL}) + h_L a (T_G - T_{SL}) + \epsilon_{SL}\sum_r (-\Delta H_r)r_{CO}\rho_{\mathrm{cat}}
+	\rho_{SL} C_{p,SL} v_{SL}^s\frac{d T_{SL}}{dz} = \frac{d}{dz}\left(\epsilon_{SL}\lambda_{\mathrm{eff,z,L}}\frac{d T_{SL}}{dz}\right) + h_W\frac{S_I}{A}(T_{\mathrm{surr}}-T_{SL}) + h_L a (T_G - T_{SL}) + \epsilon_{L}(-\Delta H_r)r_{CO}\rho_{\mathrm{cat}}
 \end{equation}
-Expanding the conductivity term, accepting constant $k_{\mathrm{eff,z,L}}$ and collecting all $\frac{dT_{SL}}{dz}$ terms on the left hand side gives:
+We define:
+\begin{equation}
+	q_{SL} = - \epsilon_{SL} \lambda_{\mathrm{eff,z,SL}}\frac{dT_{SL}}{dz}
+\end{equation}
+This gives:
 \begin{equation}
 	\begin{split}
-	&\left[\rho_{SL}C_{p,SL}v_{SL}^s -k_{\mathrm{eff,z,L}}\frac{d \epsilon_{SL}}{dz}\right]\frac{d T_{SL}}{dz} - \epsilon_{SL}k_{\mathrm{eff,z,L}}\frac{d^2T_{SL}}{dz^2} =\\
-	& h_W\frac{S_I}{A}(T_{\mathrm{surr}}-T_{SL}) + h_L a (T_G - T_{SL}) + \epsilon_{SL}\sum_r (-\Delta H_r)r_{CO}\rho_{\mathrm{cat}}
+	&q_{SL} + \epsilon_{SL} \lambda_{\mathrm{eff,z,SL}}\frac{dT_{SL}}{dz} = 0\\
+	&\rho_{SL} C_{p,SL} v_{SL}^s\frac{d T_{SL}}{dz} + \frac{d q_{SL}}{dz} - h_W\frac{S_I}{A}(T_{\mathrm{surr}}-T_{SL}) - h_L a (T_G - T_{SL}) = \epsilon_{L}(-\Delta H_r)r_{CO}\rho_{\mathrm{cat}}
 	\end{split}
 \end{equation}
 
@@ -528,12 +516,11 @@ See separate note on the non-adjustable operating conditions.
 \begin{equation}
 	\epsilon_L + \epsilon_G + \epsilon_S = 1
 \end{equation}
-
 \begin{equation}
 	\begin{split}
-	\frac{d \epsilon_L}{dz} &= \frac{\epsilon_L}{v_L^s}\sum_ik_{L,i}a(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}) \\
-	\frac{d \epsilon_S}{dz} &= 0\\
-	\frac{d \epsilon_G}{dz} &= \frac{d (1 - \epsilon_S - \epsilon_L))}{dz} = -\frac{d \epsilon_L}{dz} - \frac{d \epsilon_S}{dz} = -\frac{d \epsilon_L}{dz}
+	\frac{d \epsilon_L}{dz} &= 0 \\
+	\frac{d \epsilon_S}{dz} &= 0 \\
+	\frac{d \epsilon_G}{dz} &= 0
 	\end{split}
 \end{equation}
 
@@ -550,24 +537,36 @@ See separate note on the non-adjustable operating conditions.
 		\frac{d \overline{M_L}}{dz} &= \frac{1}{\left(\sum_j \frac{\omega_j^L}{M_{w,j}}\right)^2}\sum_i\left[\frac{d\omega_{L,i}}{dz} \sum_j\frac{\omega_j^L}{M_{w,j}} - \omega_{i,L}\sum_j \frac{d\omega_{L,j}}{dz}\frac{1}{M_{w,j}} \right] \\
 	\end{split}
 \end{equation}
+Note! The rate of change in molar mass was implemented as follows:
+\begin{equation}
+	\frac{d \overline{M_G}}{dz} = D_{ij}\overline{M_G}
+\end{equation}
+where $D_{ij}$ is the derivative matrix of the interpolation polynomials. 
 
 \begin{equation}
 	\begin{split}
-		\frac{d}{dz}v_G^s &= -\frac{v_G^s}{\rho_G}\frac{d}{dz}\rho_G - \frac{\rho_L}{\rho_G}\sum_ik_{L,i}a(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}^*)\\
-		\frac{d}{dz}v_L^s &= -\frac{v_L^s}{\rho_L}\frac{d}{dz}\rho_L + \sum_ik_{L,i}a(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}^*)
+		\frac{dv_G^s}{dz} &= -\frac{v_G^s}{\rho_G}\frac{d}{dz}\rho_G - \frac{\rho_L}{\rho_G}\sum_ik_{L,i}a(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}^*)\\
+		\frac{dv_L^s}{dz} &= -\frac{v_L^s}{\rho_L}\frac{d}{dz}\rho_L + \sum_ik_{L,i}a(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}^*)
 	\end{split}
 \end{equation}
 
+Species mass balance: dispersion flux and weight fraction equations.\\
+Gas phase:
 \begin{equation}
 	\begin{split}
-	&\left[1 - \frac{D_{\mathrm{eff,z,G}}}{v_G^s}\frac{d \epsilon_G}{dz} -\frac{1}{\rho_Gv_G^s}\frac{d\rho_G}{dz}\right]\frac{d\omega_{i,G}}{dz} - \epsilon_G \frac{D_{\mathrm{eff,z,G}}}{v_G^s}\frac{d^2\omega_{i,G}}{dz^2} \\
-	&=\frac{\omega_{i,G}}{v_G^s}\frac{\rho_L}{\rho_G}\sum_ik_{L,i}a(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L})  - \frac{\rho_L}{\rho_G}\frac{k_{L,i}a}{v_G^s}(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L})\\
-	&\left[1 -  \frac{D_{\mathrm{eff,z,L}}}{v_L^s}\frac{d\epsilon_L}{dz} \right]\frac{d\omega_{i,L}}{dz} - \frac{\epsilon_L D_{\mathrm{eff,z,L}}}{v_L^s}\frac{d^2\omega_{i,L}}{dz^2} \\
-	&= - \frac{\omega_{i,L}}{v_L^s}\sum_ik_{L,i}a(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}) + \frac{k_{L,i}a}{v_L^s}(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}) + \frac{\epsilon_L \nu_i r_{CO}}{\rho_L v_L^s}M_{w,i}\rho_{cat}
+	& j_{i,G} + \epsilon_G \rho_G D_{\mathrm{eff,z,G}} \frac{d\omega_{i,G}}{dz} = 0\\
+	& \rho_Gv_G^s \frac{d\rho_G}{dz} + \rho_Gv_G^s\frac{d\omega_{i,G}}{dz} + \rho_G\omega_{i,G}\frac{dv_G^s}{dz} + \frac{dj_{i,G}}{dz} + k_{L,i}a(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L}) = 0
+	\end{split}
+\end{equation}
+Liquid phase:
+\begin{equation}
+	\begin{split}
+	& j_{i,L} + \epsilon_L \rho_L D_{\mathrm{eff,z,L}} \frac{d\omega_{i,L}}{dz} = 0\\
+	&\rho_Lv_L^s \frac{d\rho_L}{dz} + \rho_Lv_L^s\frac{d\omega_{i,L}}{dz} + \rho_L\omega_{i,L}\frac{dv_L^s}{dz} + \frac{dj_{i,L}}{dz} - k_{L,i}a(\frac{1}{k_i}\frac{\overline{M_G}}{\overline{M_L}}\omega_{i,G}^*-\omega_{i,L})= \epsilon_L \nu_i r_{CO} M_{w,i}\rho_{cat}
 	\end{split}
 \end{equation}
 
-Energy balance: heat flux and temperature equations
+Energy balance: heat flux and temperature equations.\\
 Gas phase:
 \begin{equation}
 \begin{split}
