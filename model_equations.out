@@ -1,0 +1,26 @@
+\BOOKMARK [1][-]{section.1}{Symbol List}{}% 1
+\BOOKMARK [1][-]{section.2}{Starting point}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Gas Phase Equations}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Liquid Phase Equations}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Boundary Conditions}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Assumptions}{}% 6
+\BOOKMARK [1][-]{section.4}{Kinetic Model}{}% 7
+\BOOKMARK [1][-]{section.5}{Reaction Term}{}% 8
+\BOOKMARK [1][-]{section.6}{Mass Transfer Term}{}% 9
+\BOOKMARK [1][-]{section.7}{Heat Transfer Terms}{}% 10
+\BOOKMARK [2][-]{subsection.7.1}{Heat transfer between slurry and gas}{section.7}% 11
+\BOOKMARK [2][-]{subsection.7.2}{Heat transfer between slurry and wall \(cooling\)}{section.7}% 12
+\BOOKMARK [1][-]{section.8}{Mass and Species Mass Conservation equations}{}% 13
+\BOOKMARK [2][-]{subsection.8.1}{Total mass conservation: gas phase}{section.8}% 14
+\BOOKMARK [2][-]{subsection.8.2}{Species mass conservation: gas phase}{section.8}% 15
+\BOOKMARK [2][-]{subsection.8.3}{Total mass conservation: liquid phase}{section.8}% 16
+\BOOKMARK [2][-]{subsection.8.4}{Species mass conservation: liquid phase}{section.8}% 17
+\BOOKMARK [2][-]{subsection.8.5}{Rate of Change in Volume Fraction}{section.8}% 18
+\BOOKMARK [2][-]{subsection.8.6}{Rate of Change in Density}{section.8}% 19
+\BOOKMARK [2][-]{subsection.8.7}{Rate of Change in Pressure}{section.8}% 20
+\BOOKMARK [2][-]{subsection.8.8}{Rate of Change in Average Molar Mass}{section.8}% 21
+\BOOKMARK [1][-]{section.9}{Energy Conservation}{}% 22
+\BOOKMARK [2][-]{subsection.9.1}{Temperature equation: gas phase}{section.9}% 23
+\BOOKMARK [2][-]{subsection.9.2}{Temperature equation: slurry phase}{section.9}% 24
+\BOOKMARK [1][-]{section.10}{Parameters}{}% 25
+\BOOKMARK [1][-]{section.11}{Final Model Equations}{}% 26

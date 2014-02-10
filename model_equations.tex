@@ -567,13 +567,20 @@ See separate note on the non-adjustable operating conditions.
 	\end{split}
 \end{equation}
 
-
+Energy balance: heat flux and temperature equations
+Gas phase:
 \begin{equation}
-	\begin{split}
-	&\left[\rho_G C_{p,G} v_G^s - \lambda_{\mathrm{eff,z,G}}\frac{d\epsilon_G}{dz} \right]\frac{dT_G}{dz} - \epsilon_G \lambda_{\mathrm{eff,z,G}}\frac{d^2T_G}{dz^2} =- h_L a (T_G - T_{SL}) \\
-		&\left[\rho_{SL}C_{p,SL}v_{SL}^s -k_{\mathrm{eff,z,L}}\frac{d \epsilon_{SL}}{dz}\right]\frac{d T_{SL}}{dz} - \epsilon_{SL}k_{\mathrm{eff,z,L}}\frac{d^2T_{SL}}{dz^2} =\\
-	& h_W\frac{S_I}{A}(T_{\mathrm{surr}}-T_{SL}) + h_L a (T_G - T_{SL}) + \epsilon_{SL}\sum_r (-\Delta H_r)r_{CO}\rho_{\mathrm{cat}}
-	\end{split}
+\begin{split}
+& \frac{q_G}{\epsilon_G\lambda_{\mathrm{eff,z,G}}} + \frac{dT_G}{dz} = 0\\
+& \frac{dT_G}{dz} + \frac{1}{\rho_G C_{p,G} v_G^s}\frac{dq_G}{dz} + \frac{h_L a}{\rho_G C_{p,G} v_G^s}(T_G - T_{SL}) = 0
+\end{split}
+\end{equation}
+Liquid phase:
+\begin{equation}
+\begin{split}
+& \frac{q_{SL}}{\epsilon_{SL}\lambda_{\mathrm{eff,z,SL}}} + \frac{dT_{SL}}{dz} = 0 \\
+& \frac{d T_{SL}}{dz} + \frac{1}{\rho_{SL}C_{p,SL}v_{SL}^s}\frac{dq_{SL}}{dz} - h_W\frac{S_I}{A}\frac{(T_{\mathrm{surr}}-T_{SL})}{\rho_{SL}C_{p,SL}v_{SL}^s} - \frac{h_L a(T_G - T_{SL})}{\rho_{SL}C_{p,SL}v_{SL}^s} = \frac{\epsilon_{L}\sum_r (-\Delta H_r)r_{CO}\rho_{\mathrm{cat}}}{\rho_{SL}C_{p,SL}v_{SL}^s}
+\end{split}
 \end{equation}
 
 \bibliography{M:/literature/cbv}
