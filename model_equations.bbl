@@ -1,9 +1,47 @@
 \begin{thebibliography}{1}
 
+\bibitem{BirdStewartLightfoot2007}
+R.~Byron Bird, Warren~E. Stewart, and Edwin~N. Lightfoot.
+\newblock {\em Transport Phenomena}.
+\newblock John Wiley \& Sons, Inc., 2007.
+
+\bibitem{CalderbankMoo-Young1961}
+P.~H. Calderbank and M.~B. Moo-Young.
+\newblock The continous phase heat and mass-transfer properties of dispersions.
+\newblock {\em Chemical Engineering Science}, 16:39--54, 1961.
+
+\bibitem{ErkeyRoddenAkgerman1988}
+C.~Erkey, J.~B: Rodden, and A.~Akgerman.
+\newblock Mutual diffusion coefficients for several dilute solutes in
+  n-octacosane and the solvent density at 371-534 k.
+\newblock {\em Journal of Chemical Engineering Data}, 33:450--453, 1988.
+
+\bibitem{ErkeyRoddenAkgerman1990a}
+C.~Erkey, J.~B: Rodden, and A.~Akgerman.
+\newblock A correlation for predicting diffusion coefficients in alkanes.
+\newblock {\em Canadian Journal of Chemical Engineering}, 68:661--665, 1990.
+
+\bibitem{ErkeyRoddenAkgerman1990b}
+C.~Erkey, J.~B: Rodden, and A.~Akgerman.
+\newblock Diffusivities of synthesis gas and n-alkanes in fischer-tropsch wax.
+\newblock {\em Energy \& Fuels}, 4:275--276, 1990.
+
 \bibitem{Jakobsen08}
 Hugo~A. Jakobsen.
 \newblock {\em Chemical Reactor Modeling: Multiphase Reactive Flows}.
 \newblock Springer, 2008.
+
+\bibitem{MarettoKrishna1999}
+C.~Maretto and R.~Krishna.
+\newblock Modelling of a bubble column slurry reactor for fischer–tropsch
+  synthesis.
+\newblock {\em Catalysis Today}, 52(2–3):279 -- 289, 1999.
+
+\bibitem{Schatzberg1967}
+Paul Schatzberg.
+\newblock On the molecular diameter of water from solubility and diffusion
+  measurements.
+\newblock {\em Journal of Physical Chemistry}, 71:4569--4570, 1967.
 
 \bibitem{Yates1991}
 Ian~C. Yates and Charles~N. Satterfield.
