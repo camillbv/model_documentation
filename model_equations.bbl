@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{BirdStewartLightfoot2007}
 R.~Byron Bird, Warren~E. Stewart, and Edwin~N. Lightfoot.
@@ -9,6 +9,17 @@ R.~Byron Bird, Warren~E. Stewart, and Edwin~N. Lightfoot.
 P.~H. Calderbank and M.~B. Moo-Young.
 \newblock The continous phase heat and mass-transfer properties of dispersions.
 \newblock {\em Chemical Engineering Science}, 16:39--54, 1961.
+
+\bibitem{Deckwer1980}
+Wolf-Dieter Deckwer.
+\newblock On the mechanism of heat transfer in bubble column reactors.
+\newblock {\em Chemical Engineering Science}, 35(6):1341 -- 1346, 1980.
+
+\bibitem{DeckwerLouisiZaidiRalek1980}
+Wolf-Dieter Deckwer, Youssef Louisi, Ahmed Zaidi, and Milos Ralek.
+\newblock Hydrodynamic properties of the fischer-tropsch slurry process.
+\newblock {\em Industrial and Engineering Chemistry Process Design and
+  Development}, 19(4):699--708, 1980.
 
 \bibitem{ErkeyRoddenAkgerman1988}
 C.~Erkey, J.~B: Rodden, and A.~Akgerman.
@@ -31,6 +42,12 @@ Hugo~A. Jakobsen.
 \newblock {\em Chemical Reactor Modeling: Multiphase Reactive Flows}.
 \newblock Springer, 2008.
 
+\bibitem{JhawarPrakash2011}
+A.~K. Jhawar and A.~Prakash.
+\newblock Heat transfer in a slurry bubble column reactor: A critical overview.
+\newblock {\em Industrial and Engineering Chemistry Research}, 51:1464--1473,
+  2011.
+
 \bibitem{MarettoKrishna1999}
 C.~Maretto and R.~Krishna.
 \newblock Modelling of a bubble column slurry reactor for fischer–tropsch
@@ -42,6 +59,11 @@ Paul Schatzberg.
 \newblock On the molecular diameter of water from solubility and diffusion
   measurements.
 \newblock {\em Journal of Physical Chemistry}, 71:4569--4570, 1967.
+
+\bibitem{Tareef1940}
+B.~M. Tareef.
+\newblock Thermal conductivity of colloidal systems.
+\newblock {\em Colloid Journal of the USSR}, 6:545, 1940.
 
 \bibitem{Yates1991}
 Ian~C. Yates and Charles~N. Satterfield.

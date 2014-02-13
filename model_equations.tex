@@ -382,6 +382,12 @@ This gives for the heat transfer term due to cooling of slurry:
 	-h_W\frac{S_I}{A}(\langle T\rangle_A -\langle T \rangle_W) = h_W\frac{\pi \left(D_c + N_td_t \right)}{\frac{\pi}{4}\left(D_c^2-N_td_t^2\right)}(T_{\mathrm{surr}}-T_{SL}) =h_W \frac{D_c + N_td_t}{\frac{1}{4}(D_c^2-N_td_t^2)} (T_{\mathrm{surr}}-T_{SL})
 \end{equation}
 
+\subsection{Calculation of parameter $h_W$}
+The parameter $h_W$ was calculated using the correlation by Deckwer ~\cite{Deckwer1980}, as re-stated by Jhawar and Prakash ~\cite{JhawarPrakash2011}, equation (3). The thermal conductivity of the slurry was calculated by the equation proposed by Tareef ~\cite{Tareef1940}. For the viscosity, Einstein's relation was used:
+\begin{equation}
+	\mu_{SL} = \mu_L(1+K\epsilon_S)
+\end{equation}
+where the constant $K$ was found by Meisl for a suspension of a Hopcalite catalyst in paraffin, according to ~\cite{DeckwerLouisiZaidiRalek1980} (equation 13).
 
 \section{Mass and Species Mass Conservation equations}
 
